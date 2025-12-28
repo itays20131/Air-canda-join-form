@@ -3,22 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Air Canada PTS Application</title>
+<title>Air Canada PTFS Application</title>
 
 <style>
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #ffffff, #f2f2f2);
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #e60012, #ffffff);
+    min-height: 100vh;
 }
 
 .container {
-    max-width: 520px;
+    max-width: 540px;
     margin: 40px auto;
     background: white;
     padding: 30px;
-    border-radius: 18px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.25);
 }
 
 .header {
@@ -28,7 +29,7 @@ body {
 
 .header h1 {
     color: #e60012;
-    margin: 0;
+    margin-bottom: 5px;
 }
 
 .header p {
@@ -39,37 +40,38 @@ body {
 label {
     display: block;
     margin-top: 15px;
-    font-weight: bold;
+    font-weight: 600;
 }
 
 input, select, textarea {
     width: 100%;
-    padding: 10px;
+    padding: 11px;
     margin-top: 6px;
-    border-radius: 8px;
+    border-radius: 10px;
     border: 1px solid #ccc;
     font-size: 0.95em;
 }
 
 textarea {
     resize: none;
-    height: 80px;
+    height: 90px;
 }
 
 button {
     width: 100%;
     margin-top: 25px;
-    padding: 14px;
-    background: #e60012;
+    padding: 15px;
+    background: linear-gradient(135deg, #e60012, #b8000e);
     color: white;
     border: none;
-    border-radius: 12px;
+    border-radius: 14px;
     font-size: 1.1em;
+    font-weight: bold;
     cursor: pointer;
 }
 
 button:hover {
-    background: #c4000f;
+    opacity: 0.9;
 }
 
 .footer {
@@ -85,8 +87,8 @@ button:hover {
 
 <div class="container">
     <div class="header">
-        <h1>✈️ Air Canada PTS</h1>
-        <p>Official Roblox Pilot Training Simulator Application</p>
+        <h1>✈️ Air Canada PTFS</h1>
+        <p>Official Roblox Pilot Training Flight Simulator Application</p>
     </div>
 
     <form id="applicationForm">
@@ -126,7 +128,7 @@ button:hover {
     </form>
 
     <div class="footer">
-        © Air Canada PTS | Roblox
+        © Air Canada PTFS | Roblox
     </div>
 </div>
 
@@ -136,29 +138,20 @@ const webhookURL = "https://discord.com/api/webhooks/1454557014972694621/lgWx_Rd
 document.getElementById("applicationForm").addEventListener("submit", function(e) {
     e.preventDefault();
 
-    const data = {
-        roblox: roblox.value,
-        discord: discord.value,
-        age: age.value,
-        role: role.value,
-        experience: experience.value,
-        reason: reason.value
-    };
-
     fetch(webhookURL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
             embeds: [{
-                title: "✈️ New Air Canada PTS Application",
+                title: "✈️ New Air Canada PTFS Application",
                 color: 15158332,
                 fields: [
-                    { name: "Roblox", value: data.roblox },
-                    { name: "Discord", value: data.discord },
-                    { name: "Age", value: data.age },
-                    { name: "Role", value: data.role },
-                    { name: "Experience", value: data.experience },
-                    { name: "Why", value: data.reason }
+                    { name: "Roblox", value: roblox.value },
+                    { name: "Discord", value: discord.value },
+                    { name: "Age", value: age.value },
+                    { name: "Role", value: role.value },
+                    { name: "Experience", value: experience.value },
+                    { name: "Why", value: reason.value }
                 ]
             }]
         })
